@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">HW4_RateYourFavoriteAnimal</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rate_your_favorite_animal">Rate Your Favorite Animal</string>
+    <string name="press_on_the_images_below_to_rate_your_favorite_animal">Press on the images below to rate your favorite animal</string>
+    <string name="no_rating_message">A rating must be selected</string>
+
 </resources>
