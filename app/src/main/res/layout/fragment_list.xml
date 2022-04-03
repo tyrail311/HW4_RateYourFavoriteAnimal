@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="125dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="125dp"
         android:text="@string/rate_your_favorite_animal"
         android:textSize="24sp"
@@ -36,10 +36,10 @@
 
     <ImageButton
         android:id="@+id/dog_imageButton"
-        android:layout_width="153dp"
-        android:layout_height="139dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="119dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="4dp"
         android:contentDescription="@string/image_for_dog"
         android:scaleType="centerCrop"
         android:src="@drawable/dog"
@@ -49,10 +49,10 @@
 
     <ImageButton
         android:id="@+id/cat_imageButton"
-        android:layout_width="161dp"
-        android:layout_height="139dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="133dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="4dp"
         android:contentDescription="@string/image_for_cat"
         android:scaleType="centerCrop"
         android:src="@drawable/cat"
@@ -62,10 +62,10 @@
 
     <ImageButton
         android:id="@+id/bear_imageButton"
-        android:layout_width="149dp"
-        android:layout_height="137dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="124dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="4dp"
         android:contentDescription="@string/image_for_bear"
         android:scaleType="centerCrop"
         android:src="@drawable/bear"
@@ -75,9 +75,9 @@
 
     <ImageButton
         android:id="@+id/rabbit_imageButton"
-        android:layout_width="163dp"
-        android:layout_height="135dp"
-        android:layout_marginStart="44dp"
+        android:layout_width="124dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/image_for_rabbit"
         android:scaleType="centerCrop"
@@ -90,8 +90,8 @@
         android:id="@+id/dog_rating_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="4dp"
         android:text="@string/your_rating"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dog_imageButton" />
@@ -100,8 +100,8 @@
         android:id="@+id/cat_rating_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="4dp"
         android:text="@string/your_rating"
         app:layout_constraintStart_toEndOf="@+id/dog_rating_text"
         app:layout_constraintTop_toBottomOf="@+id/cat_imageButton" />
@@ -121,7 +121,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:text="@string/your_rating"
         app:layout_constraintStart_toEndOf="@+id/bear_rating_text"
         app:layout_constraintTop_toBottomOf="@+id/rabbit_imageButton" />

@@ -11,15 +11,15 @@
 
     <ImageView
         android:id="@+id/animal_image"
-        android:layout_width="250dp"
-        android:layout_height="164dp"
+        android:layout_width="177dp"
+        android:layout_height="91dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="4dp"
         android:contentDescription="@string/image_for_animal"
         android:src="@drawable/cat"
         app:layout_constraintBottom_toTopOf="@+id/question"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/animal_name" />
 
@@ -35,8 +35,8 @@
 
     <RatingBar
         android:id="@+id/rating_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="232dp"
+        android:layout_height="45dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -58,7 +58,7 @@
         android:id="@+id/animal_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
         android:text="@string/animal_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
