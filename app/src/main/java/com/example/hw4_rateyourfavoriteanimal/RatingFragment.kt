@@ -13,13 +13,10 @@ import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.example.hw4_rateyourfavoriteanimal.R
 
-
-private const val ARG_POSITION = "positionList"
-
 class RatingFragment : Fragment() {
     lateinit var viewModel: AnimalSelection
     private val animalNames = listOf("Dog", "Cat", "Bear", "Rabbit")
-    private var position = 0
+    var position = 0
 
     fun saveRating(view: View) {
         val ratingBar = view.findViewById<RatingBar>(R.id.rating_bar)
@@ -42,7 +39,7 @@ class RatingFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_rating, container, false)
         viewModel = ViewModelProvider(requireActivity()).get(AnimalSelection::class.java)
-        val position = viewModel.getPosition() ?: 0
+        position = viewModel.getPosition() ?: 0
         val imageId = when (position) {
             0 -> R.drawable.dog
             1 -> R.drawable.cat

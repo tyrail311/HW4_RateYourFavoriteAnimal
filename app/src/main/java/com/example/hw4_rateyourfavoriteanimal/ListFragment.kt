@@ -1,16 +1,13 @@
 package com.example.hw4_rateyourfavoriteanimal
 import android.content.Context
-import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.fragment_list.*
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 class ListFragment : Fragment() {
@@ -35,22 +32,22 @@ class ListFragment : Fragment() {
         viewModel = ViewModelProvider(requireActivity()).get(AnimalSelection::class.java)
 
         view.dog_imageButton.setOnClickListener {
-            setClick(0, "dog")
+            setClick(0, "Dog")
             allowRotation()
         }
 
         view.cat_imageButton.setOnClickListener{
-            setClick(1,"cat")
+            setClick(1,"Cat")
             allowRotation()
         }
 
         view.bear_imageButton.setOnClickListener{
-            setClick(2,"bear")
+            setClick(2,"Bear")
             allowRotation()
         }
 
         view.rabbit_imageButton.setOnClickListener{
-            setClick(3,"rabbit")
+            setClick(3,"Rabbit")
             allowRotation()
         }
 
@@ -61,14 +58,16 @@ class ListFragment : Fragment() {
         var bear_rating = sharedPreferences.getString(animalList[2], "-")
         var rabbit_rating = sharedPreferences.getString(animalList[3], "-")
 
-        view.findViewById<TextView>(R.id.dog_rating).text = "Your rating: $dog_rating"
-        view.findViewById<TextView>(R.id.cat_rating).text = "Your rating: $cat_rating"
-        view.findViewById<TextView>(R.id.bear_rating).text = "Your rating: $bear_rating"
-        view.findViewById<TextView>(R.id.rabbit_rating).text = "Your rating: $rabbit_rating"
+        view.findViewById<TextView>(R.id.dog_rating_text).text = "Your rating: $dog_rating"
+        view.findViewById<TextView>(R.id.cat_rating_text).text = "Your rating: $cat_rating"
+        view.findViewById<TextView>(R.id.bear_rating_text).text = "Your rating: $bear_rating"
+        view.findViewById<TextView>(R.id.rabbit_rating_text).text = "Your rating: $rabbit_rating"
         return view
     }
 
     fun allowRotation(){
+        viewModel.setPosition(position)
+
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.main_container, RatingFragment())

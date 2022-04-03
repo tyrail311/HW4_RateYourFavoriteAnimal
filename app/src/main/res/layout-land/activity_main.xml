@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/list_container"
+        android:id="@+id/main_container"
         android:name="com.example.hw4_rateyourfavoriteanimal.ListFragment"
         android:layout_width="371dp"
         android:layout_height="410dp"
@@ -22,6 +22,7 @@
         android:layout_height="414dp"
         android:layout_marginStart="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/list_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/main_container"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
