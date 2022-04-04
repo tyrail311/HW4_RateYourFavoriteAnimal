@@ -1,4 +1,5 @@
 package com.example.hw4_rateyourfavoriteanimal
+
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
@@ -6,20 +7,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 class ListFragment : Fragment() {
-    lateinit var viewModel: AnimalSelection
-    var position = 0
-    var selectedItem = ""
+    private lateinit var viewModel: AnimalSelection
+    private var position = 0
+    private var selectedItem = ""
     private val animalList = listOf("Dog", "Cat", "Bear", "Rabbit")
 
-    fun setClick(position1: Int, selectedItem1: String)
-    {
-         position = position1
-         selectedItem = selectedItem1
+    private fun setClick(position1: Int, selectedItem1: String) {
+        position = position1
+        selectedItem = selectedItem1
     }
 
     override fun onCreateView(
@@ -31,26 +33,31 @@ class ListFragment : Fragment() {
 
         viewModel = ViewModelProvider(requireActivity()).get(AnimalSelection::class.java)
 
-        view.dog_imageButton.setOnClickListener {
-            setClick(0, "Dog")
-            allowRotation()
+        val imageIdList = listOf(
+            R.id.dog_imageButton,
+            R.id.cat_imageButton,
+            R.id.bear_imageButton,
+            R.id.rabbit_imageButton
+        )
+        for (imageId in imageIdList) {
+            view.findViewById<ImageButton>(imageId).setOnClickListener {
+                when (imageId) {
+                    R.id.dog_imageButton -> {
+                        setClick(0, "Dog")
+                    }
+                    R.id.cat_imageButton -> {
+                        setClick(1, "Cat")
+                    }
+                    R.id.bear_imageButton -> {
+                        setClick(2, "Bear")
+                    }
+                    else -> {
+                        setClick(3, "Rabbit")
+                    }
+                }
+                allowRotation()
+            }
         }
-
-        view.cat_imageButton.setOnClickListener{
-            setClick(1,"Cat")
-            allowRotation()
-        }
-
-        view.bear_imageButton.setOnClickListener{
-            setClick(2,"Bear")
-            allowRotation()
-        }
-
-        view.rabbit_imageButton.setOnClickListener{
-            setClick(3,"Rabbit")
-            allowRotation()
-        }
-
 
         var sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
         var dog_rating = sharedPreferences.getString(animalList[0], "-")
@@ -62,19 +69,19 @@ class ListFragment : Fragment() {
         view.findViewById<TextView>(R.id.cat_rating_text).text = "Your rating: $cat_rating"
         view.findViewById<TextView>(R.id.bear_rating_text).text = "Your rating: $bear_rating"
         view.findViewById<TextView>(R.id.rabbit_rating_text).text = "Your rating: $rabbit_rating"
+
         return view
     }
 
-    fun allowRotation(){
+    private fun allowRotation() {
         viewModel.setPosition(position)
 
-        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
+        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.main_container, RatingFragment())
                 .addToBackStack(null)
                 .commit()
-        }
-        else {
+        } else {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.rating_container, RatingFragment())
                 .addToBackStack(null)
