@@ -14,5 +14,4 @@ class AnimalSelection: ViewModel(){
     fun getPosition(): Int? {
         return position.value
     }
-
 }
